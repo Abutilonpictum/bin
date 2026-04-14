@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ps简历</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+
+        /* 简历容器 - 背景图核心样式 */
+        .resume-container {
+            width: 100%;
+            min-height: 100vh;
+            /* 背景图配置：覆盖+居中+固定，保证滚动时背景不动 */
+            background: url("你的图片路径") no-repeat center center fixed;
+            background-size: cover;
+            /* 半透明遮罩，避免文字与背景冲突 */
+            position: relative;
+            padding: 40px 0;
+        }
+
+        /* 遮罩层：降低背景亮度，提升文字可读性 */
+        .resume-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* 可调整透明度（0.1-0.9） */
+            z-index: 1;
+        }
+
+        /* 简历内容区：白色半透明背景，突出内容 */
+        .resume-content {
+            width: 80%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2; /* 保证内容在遮罩层上方 */
+        }
+
+        /* 简历标题样式 */
+        .resume-title {
+            text-align: center;
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        /* 模块标题样式 */
+        .module-title {
+            font-size: 22px;
+            color: #3498db;
+            margin: 20px 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 模块内容样式 */
+        .module-content {
+            line-height: 1.8;
+            color: #333;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* 技能/项目列表样式 */
+        .list-item {
+            margin: 8px 0;
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .list-item::before {
+            content: "●";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 响应式适配：手机端优化 */
+        @media (max-width: 768px) {
+            .resume-content {
+                width: 95%;
+                padding: 20px;
+            }
+            .resume-title {
+                font-size: 26px;
+            }
+            .module-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="resume-content">
+            <!-- 简历标题 -->
+            <h1 class="resume-title">个人简历</h1>
+
+            <!-- 基本信息模块 -->
+            <h2 class="module-title">📌 基本信息</h2>
+            <div class="module-content">
+                <p><strong>姓名：</strong>XXX</p>
+                <p><strong>性别：</strong>X</p>
+                <p><strong>联系电话：</strong>138XXXX8888</p>
+                <p><strong>邮箱：</strong>xxx@xxx.com</p>
+                <p><strong>求职意向：</strong>后端开发/前端开发/全栈开发</p>
+            </div>
+
+            <!-- 技能专长模块 -->
+            <h2 class="module-title">💻 技能专长</h2>
+            <div class="module-content">
+                <ul>
+                    <li class="list-item">编程语言：Python/Java/JavaScript/Go</li>
+                    <li class="list-item">前端技术：HTML/CSS/React/Vue/小程序开发</li>
+                    <li class="list-item">后端技术：SpringBoot/Django/Flask/MySQL/Redis</li>
+                    <li class="list-item">其他：Linux/Docker/算法/计算机视觉</li>
+                </ul>
+            </div>
+
+            <!-- 项目经验模块 -->
+            <h2 class="module-title">📝 项目经验</h2>
+            <div class="module-content">
+                <p><strong>项目名称：</strong>停车场空位智能检测系统</p>
+                <p><strong>项目职责：</strong>负责YOLOv8模型集成、前端界面开发、系统联调</p>
+                <p><strong>项目成果：</strong>实现停车场车位实时检测，支持图片/视频/摄像头多源输入，检测精度达95%+</p>
+            </div>
+
+            <!-- 教育背景模块 -->
+            <h2 class="module-title">🎓 教育背景</h2>
+            <div class="module-content">
+                <p><strong>学校名称：</strong>sb大学</p>
+                <p><strong>专业：</strong>计算机科学与技术</p>
+                <p><strong>学历：</strong>本科/硕士</p>
+                <p><strong>时间：</strong>2027.09 - 2029.06</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
